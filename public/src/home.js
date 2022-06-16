@@ -28,7 +28,7 @@ function getMostPopularBooks(books) {
       name: book.title,
       count: book.borrows.length
     }
-  }).sort((a, b) => b.count - a.count).splice(0,5)
+  }).sort((bookA, bookB) => bookB.count - bookA.count).splice(0,5)
 }
 
 function getMostPopularAuthors(books, authors) {
@@ -42,7 +42,7 @@ function getMostPopularAuthors(books, authors) {
       count: totalBorrows,
     });
   });
-  authArray.sort((a, b) => (a.count < b.count ? 1 : -1))
+  authArray.sort((bookA, bookB) => (bookA.count < bookB.count ? 1 : -1))
   authArray.length = 5;
   return authArray;
 }
